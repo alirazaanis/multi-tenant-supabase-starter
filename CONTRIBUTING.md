@@ -35,5 +35,5 @@ Security issues are covered in [SECURITY.md](SECURITY.md).
 Recommended repository settings:
 
 - **Topics:** `supabase`, `multi-tenant`, `nextjs`, `authentication`, `starter`
-- **Branch protection** on `main`: CI checks required
+- **Branch protection** on `main`: `unit` and `e2e-smoke` CI checks required; force push and deletion disabled
 - **Dependabot alerts** and **secret scanning** enabled (default on public repos)
