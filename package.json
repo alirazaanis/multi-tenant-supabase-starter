@@ -1,0 +1,50 @@
+{
+  "name": "multi-tenant-supabase-starter",
+  "version": "1.0.0",
+  "description": "Multi-Tenant Supabase Starter — reference implementation for multi-tenant auth on Supabase with platform owners, org sites, and isolated customer sessions.",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alirazaanis/multi-tenant-supabase-starter.git"
+  },
+  "bugs": "https://github.com/alirazaanis/multi-tenant-supabase-starter/issues",
+  "homepage": "https://github.com/alirazaanis/multi-tenant-supabase-starter#readme",
+  "keywords": [
+    "supabase",
+    "multi-tenant",
+    "nextjs",
+    "authentication",
+    "starter"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.8",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.19",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

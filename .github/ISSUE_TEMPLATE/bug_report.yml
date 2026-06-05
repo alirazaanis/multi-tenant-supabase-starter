@@ -1,0 +1,54 @@
+name: Bug report
+description: Report a bug in Multi-Tenant Supabase Starter or its documentation
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please avoid posting Supabase keys, passwords, or `.env.local` contents.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Clear description of the bug
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run migration ...
+        2. Set env ...
+        3. Visit /register ...
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: "22.x"
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Platform owner auth
+        - Customer org auth
+        - Console / org CRUD
+        - Migration / RLS
+        - CI / tests
+        - Documentation
+        - Other

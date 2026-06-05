@@ -1,0 +1,40 @@
+# Dependencies & build
+node_modules
+.next
+out
+dist
+build
+
+# Environment & secrets (never commit)
+.env
+.env.*
+!.env.example
+!.env.e2e.example
+
+# Logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Test & debug artifacts
+test-results
+playwright-report
+blob-report
+playwright/.cache
+coverage
+
+# curl / manual HTTP debug output (local scratch files)
+cookies*.txt
+*-headers.txt
+*-body.json
+*-body.html
+
+# IDE & editor
+.idea
+.vscode
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
