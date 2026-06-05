@@ -7,6 +7,9 @@ test.describe("public smoke", () => {
       page.getByRole("heading", { name: /Multi-Tenant Supabase Starter/i })
     ).toBeVisible();
     await expect(page.getByRole("link", { name: /Create account/i })).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Multi-Tenant Supabase Starter on GitHub/i })
+    ).toBeVisible();
   });
 
   test("register and login pages load", async ({ page }) => {
@@ -20,7 +23,7 @@ test.describe("public smoke", () => {
   test("solution page loads", async ({ page }) => {
     await page.goto("/solution");
     await expect(
-      page.getByRole("heading", { name: /Internal Email Mapping/i })
+      page.getByRole("heading", { name: /Little Wrapper on Supabase Auth/i })
     ).toBeVisible();
   });
 });

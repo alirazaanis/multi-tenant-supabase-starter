@@ -3,7 +3,7 @@
 [![CI](https://github.com/alirazaanis/multi-tenant-supabase-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/alirazaanis/multi-tenant-supabase-starter/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Multi-Tenant Supabase Starter** is a reference implementation for multi-tenant authentication on Supabase. A platform owner account manages up to 100 organizations; each organization has a customer-facing site. The same customer email may exist on multiple organizations — each registration is a separate auth user with isolated sessions and profiles.
+**Multi-Tenant Supabase Starter** is a reference implementation for multi-tenant authentication on Supabase — a little wrapper on top of Supabase Auth for customer signup and login. A platform owner account manages up to 100 organizations; each organization has a customer-facing site. The same customer email may exist on multiple organizations — each registration is a separate auth user with isolated sessions and profiles.
 
 > **Note:** This is a reference implementation. Production deployments require review of auth, RLS, rate limits, and operational security.
 
@@ -140,8 +140,9 @@ Customer org sites include a hub link (header + footer) back to **Multi-Tenant S
 | Role | Auth | Notes |
 |------|------|-------|
 | **Platform owner** | Real email; row in `platform_owners` | `signUp` via anon key + `register_platform_owner` RPC; org CRUD via RLS |
-| **Customer** | Internal email per org, `role: customer` | `signUp` + DB trigger; login via RPC |
+| **Customer** | Internal email per org, `role: customer` | Auth wrapper → `signUp` + DB trigger; login via RPC |
 
+- **Customer auth** — little wrapper on Supabase Auth: real email in forms, internal email + `auth_mappings` per org
 - **No service role** on core auth or org CRUD paths
 - **Service role** (server-only) for rate-limit/idempotency tables and the optional [`/problem`](/problem) illustration
 - **Platform owner authorization** uses `platform_owners` table — not forgeable JWT metadata
@@ -158,7 +159,7 @@ Each org has a theme at creation: **Light**, **Dark**, **Ocean**, **Ember** — 
 ## Pattern reference
 
 - [`/problem`](/problem) — naive Supabase auth failure (requires service role key, development only)
-- [`/solution`](/solution) — internal email mapping explained
+- [`/solution`](/solution) — the Supabase Auth wrapper explained
 
 ## Project layout
 

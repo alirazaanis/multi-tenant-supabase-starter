@@ -217,6 +217,16 @@
   text-decoration: underline;
 }
 
+.tenant-site-footer-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tenant-site-footer-sep {
+  color: var(--tenant-muted, #86868b);
+}
+
 .tenant-dashboard-panel {
   max-width: 480px;
 }

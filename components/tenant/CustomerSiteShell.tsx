@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GitHubLink } from "@/components/GitHubLink";
 import { PRODUCT_NAME } from "@/lib/constants";
 import type { TenantBrand } from "@/lib/tenants";
 
@@ -53,10 +54,18 @@ export function CustomerSiteShell({ brand, tenantName, children }: Props) {
       </div>
 
       <footer className="tenant-site-footer">
-        <span>© {new Date().getFullYear()} {tenantName}</span>
-        <Link href="/" className="tenant-site-footer-link">
-          {PRODUCT_NAME}
-        </Link>
+        <span>
+          © {new Date().getFullYear()} {tenantName}
+        </span>
+        <span className="tenant-site-footer-links">
+          <Link href="/" className="tenant-site-footer-link">
+            {PRODUCT_NAME}
+          </Link>
+          <span className="tenant-site-footer-sep" aria-hidden>
+            ·
+          </span>
+          <GitHubLink className="tenant-site-footer-link" />
+        </span>
       </footer>
     </div>
   );

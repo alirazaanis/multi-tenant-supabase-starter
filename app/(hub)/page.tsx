@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PRODUCT_NAME } from "@/lib/constants";
+import { AUTH_WRAPPER_SUMMARY, PRODUCT_NAME } from "@/lib/constants";
 
 export default function HomePage() {
   return (
@@ -15,11 +15,10 @@ export default function HomePage() {
       </section>
 
       <div className="card learn-card">
-        <h2>Understand the pattern</h2>
+        <h2>How it works</h2>
         <p>
-          Supabase Auth enforces one email per project. {PRODUCT_NAME} shows why
-          that breaks multi-tenant signup — and how internal email mapping
-          resolves it.
+          Supabase Auth enforces one email per project, which breaks multi-tenant
+          signup. {PRODUCT_NAME} is {AUTH_WRAPPER_SUMMARY.toLowerCase()}
         </p>
         <div className="links-row">
           <Link href="/problem" className="btn btn-secondary btn-block-sm">

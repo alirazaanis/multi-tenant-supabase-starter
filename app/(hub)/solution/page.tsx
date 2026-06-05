@@ -1,13 +1,15 @@
 import Link from "next/link";
+import { AUTH_WRAPPER_SUMMARY } from "@/lib/constants";
 
 export default function SolutionPage() {
   return (
     <>
-      <h1>The Solution: Internal Email Mapping</h1>
+      <h1>The Solution: A Little Wrapper on Supabase Auth</h1>
+      <p>{AUTH_WRAPPER_SUMMARY}</p>
       <p>
-        Customers always type their real email. Your backend transforms it into a
-        unique internal email per tenant before calling Supabase Auth. Supabase
-        sees two different users; your app maps both back to the same person.
+        Customers always enter their real email. The wrapper maps each org to a
+        unique internal email before Supabase Auth runs. Supabase stores separate
+        users; the app maps both back to the same person.
       </p>
 
       <div className="card">
@@ -15,7 +17,7 @@ export default function SolutionPage() {
         <div className="flow-diagram">{`Org A registration with demo@example.com
         │
         ▼
-Internal email: sha256("demo@example.com:org-a-tenant-id")@customers.internal
+Wrapper: internal email = sha256("demo@example.com:org-a-tenant-id")@customers.internal
         │
         ▼
 Supabase Auth user with INTERNAL email + metadata { real_email, tenant_id, role: customer }
@@ -27,7 +29,7 @@ auth_mappings: (tenant_id, real_email) → internal_email, user_id
 Org A login with demo@example.com + password
         │
         ▼
-Backend resolves internal email → signInWithPassword
+Wrapper resolves internal email → signInWithPassword
 
 Same customer on Org B → different hash → different Supabase user ✅`}</div>
       </div>
@@ -36,8 +38,8 @@ Same customer on Org B → different hash → different Supabase user ✅`}</div
         <div className="card">
           <h3>What the customer sees</h3>
           <p>
-            Each org you create has its own URL and theme — normal signup forms.
-            The same email works on every org.
+            Each org has its own URL and theme — normal signup forms. The same
+            email works on every org.
           </p>
         </div>
         <div className="card">

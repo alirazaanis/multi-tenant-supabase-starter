@@ -153,8 +153,8 @@ export default function ProblemPage() {
           <li>User never sees or types the internal auth email</li>
         </ul>
         <p style={{ marginBottom: 0 }}>
-          See <Link href="/solution">The Solution</Link> for the internal-email
-          mapping pattern.
+          See <Link href="/solution">The Solution</Link> — a little wrapper on
+          top of Supabase Auth.
         </p>
       </div>
     </>

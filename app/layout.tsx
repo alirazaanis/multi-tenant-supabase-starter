@@ -8,7 +8,7 @@ import "./tenant-sites.css";
 export const metadata: Metadata = {
   title: PRODUCT_NAME,
   description:
-    "Multi-Tenant Supabase Starter — org sites with isolated customer auth, same email per org, separate sessions per tenant.",
+    "Multi-Tenant Supabase Starter — a little wrapper on Supabase Auth for org sites, same email per org, separate sessions.",
 };
 
 export const viewport = {

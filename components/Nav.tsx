@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { GitHubLink } from "@/components/GitHubLink";
 import { isPlatformOwner } from "@/lib/auth/platform-owner";
 import { PRODUCT_NAME } from "@/lib/constants";
 import { createClient } from "@/lib/supabase/client";
@@ -102,6 +103,10 @@ export function Nav() {
                 </Link>
               );
             })}
+          </div>
+
+          <div className="nav-secondary" aria-label="Source">
+            <GitHubLink />
           </div>
         </div>
       </nav>

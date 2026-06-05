@@ -3,8 +3,8 @@ import { INTERNAL_EMAIL_DOMAIN } from "@/lib/constants";
 
 /**
  * Supabase Auth enforces global email uniqueness.
- * We store a deterministic internal email per (real_email, tenant_id) pair
- * so the same person can be a completely separate auth user on each tenant.
+ * The auth wrapper stores a deterministic internal email per (real_email, tenant_id) pair
+ * so the same person is a separate auth user on each org.
  */
 export function toInternalEmail(realEmail: string, tenantId: string): string {
   const normalized = realEmail.trim().toLowerCase();
