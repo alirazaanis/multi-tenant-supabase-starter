@@ -35,5 +35,23 @@ Security issues are covered in [SECURITY.md](SECURITY.md).
 Recommended repository settings:
 
 - **Topics:** `supabase`, `multi-tenant`, `nextjs`, `authentication`, `starter`
-- **Branch protection** on `main`: `unit` and `e2e-smoke` CI checks required; force push and deletion disabled
 - **Dependabot alerts** and **secret scanning** enabled (default on public repos)
+
+### Branch protection (`main`)
+
+Rules live on GitHub (not enforced by files in this repo). The intended configuration is versioned in [`.github/branch-protection.json`](.github/branch-protection.json).
+
+After creating the repo or changing CI job names, apply with:
+
+```bash
+gh api repos/alirazaanis/multi-tenant-supabase-starter/branches/main/protection \
+  -X PUT --input .github/branch-protection.json
+```
+
+Or:
+
+```bash
+bash .github/scripts/apply-branch-protection.sh
+```
+
+Current rules: required checks `unit` and `e2e-smoke`; force push and branch deletion disabled.
