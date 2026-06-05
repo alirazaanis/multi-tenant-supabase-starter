@@ -37,21 +37,31 @@ Recommended repository settings:
 - **Topics:** `supabase`, `multi-tenant`, `nextjs`, `authentication`, `starter`
 - **Dependabot alerts** and **secret scanning** enabled (default on public repos)
 
-### Branch protection (`main`)
+### Ruleset for `main`
 
-Rules live on GitHub (not enforced by files in this repo). The intended configuration is versioned in [`.github/branch-protection.json`](.github/branch-protection.json).
+Branch rules live on GitHub under **Settings → Rules → Rulesets** (not in-repo enforcement). The intended configuration is versioned in [`.github/ruleset-main.json`](.github/ruleset-main.json).
 
 After creating the repo or changing CI job names, apply with:
 
 ```bash
-gh api repos/alirazaanis/multi-tenant-supabase-starter/branches/main/protection \
-  -X PUT --input .github/branch-protection.json
+gh api repos/alirazaanis/multi-tenant-supabase-starter/rulesets -X POST \
+  --input .github/ruleset-main.json
 ```
 
-Or:
+Or (creates or updates by name):
 
 ```bash
-bash .github/scripts/apply-branch-protection.sh
+bash .github/scripts/apply-ruleset.sh
 ```
 
-Current rules: required checks `unit` and `e2e-smoke`; force push and branch deletion disabled.
+Current rules on `main`:
+
+- Required status checks: `unit`, `e2e-smoke` (strict; not enforced on branch creation)
+- Force push blocked (`non_fast_forward`)
+- Branch deletion blocked
+
+If legacy **branch protection** still exists under **Settings → Branches**, remove it so only the ruleset applies:
+
+```bash
+gh api repos/alirazaanis/multi-tenant-supabase-starter/branches/main/protection -X DELETE
+```
