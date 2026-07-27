@@ -38,13 +38,13 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.53.2",
-    "@types/node": "^22.15.21",
+    "@playwright/test": "^1.62.0",
+    "@types/node": "^26.1.2",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
-    "eslint": "^8.57.1",
+    "eslint": "^10.8.0",
     "eslint-config-next": "^15.5.19",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }
